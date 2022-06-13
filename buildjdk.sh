@@ -27,13 +27,13 @@ export CFLAGS+=" -DLE_STANDALONE" # -I$FREETYPE_DIR -I$CUPS_DI
 # cp -R /usr/include/fontconfig $ANDROID_INCLUDE/
 
 if [ "$BUILD_IOS" != "1" ]; then
-  export CFLAGS+=" -O3 -fPIE"
+  export CFLAGS+=" -O3"
 
   ln -s -f /usr/include/X11 $ANDROID_INCLUDE/
   ln -s -f /usr/include/fontconfig $ANDROID_INCLUDE/
   AUTOCONF_x11arg="--x-includes=$ANDROID_INCLUDE/X11"
 
-  export LDFLAGS+=" -L`pwd`/dummy_libs -pie"
+  export LDFLAGS+=" -L`pwd`/dummy_libs -fPIE"
 
   sudo apt -y install systemtap-sdt-dev gcc-multilib g++-multilib libxtst-dev libasound2-dev libelf-dev libfontconfig1-dev libx11-dev
 # Create dummy libraries so we won't have to remove them in OpenJDK makefiles
