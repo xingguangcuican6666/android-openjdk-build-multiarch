@@ -72,7 +72,7 @@ bash ./configure \
     --with-extra-cxxflags="$CFLAGS" \
     --with-extra-ldflags="$LDFLAGS" \
     --enable-option-checking=fatal \
-    --with-jdk-variant=normal \
+    --with-jdk-variant=embedded \
     --with-jvm-variants="${JVM_VARIANTS/AND/,}" \
     --with-cups-include=$CUPS_DIR \
     --with-devkit=$TOOLCHAIN \
